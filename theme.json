@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "bg-dark",       "color": "#003A27", "name": "Темный фон" },
+        { "slug": "bg-light",      "color": "#FFFBE2", "name": "Светлый фон" },
+        { "slug": "beige-dark",    "color": "#F6E6BE", "name": "Темный беж" },
+        { "slug": "accent-dark",   "color": "#262626", "name": "Фон акцента" },
+        { "slug": "accent-green",  "color": "#07EC72", "name": "Акцент зеленый" },
+        { "slug": "white",         "color": "#FFFFFF", "name": "Белый" },
+        { "slug": "text-light",    "color": "#70947A", "name": "Светлый текст" },
+        { "slug": "text-review",   "color": "#B1C9A9", "name": "Текст отзывов" },
+        { "slug": "text-gray",     "color": "#5C5C5C", "name": "Серый текст" },
+        { "slug": "bg-green-light","color": "#EBECD3", "name": "Фон выделенный светло-зеленый" },
+        { "slug": "bg-green-mark", "color": "#B3C1AB", "name": "Фон выделенный зеленый" },
+        { "slug": "green-dark",    "color": "#3D644C", "name": "Светлый зеленый на темном" },
+        { "slug": "bg-heading-dark","color": "#25533D","name": "Фон заголовков на темном" },
+        { "slug": "desc-gray",     "color": "#A1A09D", "name": "Пояснения на сером" },
+        { "slug": "review-1",      "color": "#4C6F56", "name": "Фон отзыва 1" },
+        { "slug": "review-2",      "color": "#70947A", "name": "Фон отзыва 2" },
+        { "slug": "review-3",      "color": "#2A623A", "name": "Фон отзыва 3" },
+        { "slug": "review-4",      "color": "#3B814F", "name": "Фон отзыва 4" },
+        { "slug": "beige-mark",    "color": "#FAF0D0", "name": "Темный беж для выделенного" },
+        { "slug": "heading-price", "color": "#8A927D", "name": "Заголовки на прайсе" },
+        { "slug": "text-search",   "color": "#A8A697", "name": "Текст в поиске" }
+      ],
+      "custom": false
+    }
+  }
+}

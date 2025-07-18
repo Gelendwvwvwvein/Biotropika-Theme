@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "sass": "^1.89.2"
+  },
+  "scripts": {
+  "build:variables": "node scripts/generate-scss-vars.js"
+}
+}
