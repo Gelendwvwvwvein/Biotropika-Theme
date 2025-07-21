@@ -51,4 +51,34 @@ add_action('init', function() {
         'show_in_rest' => true,
         'show_admin_column' => true,
     ]);
+    
+    // 4. Тип таблицы
+    register_taxonomy('table_category', ['table'], [
+        'label'             => 'Тип таблицы',
+        'labels'            => [
+            'singular_name' => 'Тип таблицы',
+            'all_items'     => 'Все типы таблиц',
+            'add_new_item'  => 'Добавить тип таблицы',
+            'edit_item'     => 'Редактировать тип таблицы',
+        ],
+        'public'            => true,
+        'hierarchical'      => true,    // рубрики-иерархия
+        'show_in_rest'      => true,    // Gutenberg
+        'show_admin_column' => true,
+    ]);
+
+    // 5. Год
+    register_taxonomy('year', ['table'], [
+        'label'             => 'Год',
+        'labels'            => [
+            'singular_name' => 'Год',
+            'all_items'     => 'Все годы',
+            'add_new_item'  => 'Добавить год',
+            'edit_item'     => 'Редактировать год',
+        ],
+        'public'            => true,
+        'hierarchical'      => false,   // тэги
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+    ]);
 });
