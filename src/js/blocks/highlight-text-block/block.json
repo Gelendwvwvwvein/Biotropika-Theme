@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/highlight-text-block",
+  "title": "Выделенный текст с кнопкой",
+  "category": "widgets",
+  "icon": "editor-paste-text",
+  "description": "Параграф с выделением и кнопкой",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

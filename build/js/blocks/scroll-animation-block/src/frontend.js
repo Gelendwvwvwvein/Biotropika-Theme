@@ -1,0 +1,1 @@
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".biotropika-scroll-animation-block");if(!e.length)return;const t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add("in-view"),t.unobserve(e.target))})},{threshold:.1});e.forEach(e=>t.observe(e))})})();

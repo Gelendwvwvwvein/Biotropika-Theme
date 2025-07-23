@@ -1,0 +1,34 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/video-slider-block",
+  "title": "Слайдер с видео и текстом",
+  "category": "widgets",
+  "icon": "format-video",
+  "description": "Слайдер: видео + текст + кнопка (Custom / Интервью)",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {
+    "mode": {
+      "type": "string",
+      "default": "custom"
+    },
+    "selectAllInterviews": {
+      "type": "boolean",
+      "default": false
+    },
+    "items": {
+      "type": "array",
+      "default": []
+    },
+    "interviews": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "script": "file:./src/frontend.js",
+  "style": "file:./style/frontend.css"
+}

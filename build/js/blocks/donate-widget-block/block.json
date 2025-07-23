@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/donate-widget-block",
+  "title": "Донатный виджет",
+  "category": "widgets",
+  "icon": "heart",
+  "description": "Виджет для приёма донатов",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

@@ -1,8 +1,11 @@
 {
   "devDependencies": {
+    "@wordpress/scripts": "^30.19.0",
     "sass": "^1.89.2"
   },
   "scripts": {
-  "build:variables": "node scripts/generate-scss-vars.js"
-}
+    "build:variables": "node scripts/generate-scss-vars.js",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  }
 }

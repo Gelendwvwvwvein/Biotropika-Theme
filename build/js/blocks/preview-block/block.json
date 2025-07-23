@@ -1,0 +1,26 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/preview-block",
+  "title": "Превью на главной",
+  "category": "widgets",
+  "icon": "cover-image",
+  "description": "Короткое превью для главной: заголовок, номер гонки, дата",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "raceNumber": {
+      "type": "string"
+    },
+    "raceDate": {
+      "type": "string"
+    }
+  },
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

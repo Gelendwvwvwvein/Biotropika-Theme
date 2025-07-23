@@ -20,7 +20,7 @@ add_action('init', function() {
         'public' => true,
         'menu_icon' => 'dashicons-format-quote',
         'supports' => ['title', 'editor', 'custom-fields'],
-        'show_in_rest' => false,  // Classic editor
+        'show_in_rest' => true,  // Classic editor
         'has_archive' => true,
         'capability_type' => 'post',
         'capabilities' => [
@@ -42,7 +42,7 @@ add_action('init', function() {
         'public' => true,
         'menu_icon' => 'dashicons-groups',
         'supports' => ['title', 'thumbnail', 'custom-fields'],
-        'show_in_rest' => false, // Classic editor
+        'show_in_rest' => true, // Classic editor
         'has_archive' => true,
         'capability_type' => 'post',
         'capabilities' => [
@@ -107,8 +107,8 @@ add_action('init', function() {
         ],
         'public' => true,
         'menu_icon' => 'dashicons-microphone',
-        'supports' => ['title', 'editor', 'custom-fields'],
-        'show_in_rest' => false, // Classic editor
+        'supports' => ['title', 'editor', 'custom-fields', 'thumbnail'],
+        'show_in_rest' => true, // Classic editor
         'has_archive' => true,
         'capability_type' => 'post',
         'capabilities' => [
@@ -130,7 +130,7 @@ add_action('init', function() {
         'public' => true,
         'menu_icon' => 'dashicons-id',
         'supports' => ['title', 'thumbnail', 'editor', 'custom-fields'],
-        'show_in_rest' => false, // Classic editor
+        'show_in_rest' => true, // Classic editor
         'has_archive' => true,
         'capability_type' => 'post',
         'capabilities' => [
@@ -174,7 +174,7 @@ add_action('init', function() {
         'public' => true,
         'menu_icon' => 'dashicons-cart',
         'supports' => ['title', 'custom-fields'],
-        'show_in_rest' => false, // Classic editor
+        'show_in_rest' => true, // Classic editor
         'has_archive' => true,
         'capability_type' => 'post',
         'capabilities' => [

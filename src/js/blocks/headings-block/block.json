@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/headings-block",
+  "title": "Заголовки с настраиваемыми параметрами",
+  "category": "widgets",
+  "icon": "heading",
+  "description": "Заголовок любого уровня с настройками",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/fullwidth-video-block",
+  "title": "Видео без звука на всю ширину",
+  "category": "widgets",
+  "icon": "format-video",
+  "description": "Видео без звука растянутое на всю ширину",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

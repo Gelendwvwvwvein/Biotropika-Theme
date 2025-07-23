@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/footer-block",
+  "title": "Футер",
+  "category": "widgets",
+  "icon": "editor-insertmore",
+  "description": "Блок футера",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

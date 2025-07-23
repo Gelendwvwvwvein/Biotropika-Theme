@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/scroll-animation-block",
+  "title": "Изображение с анимацией при скролле",
+  "category": "widgets",
+  "icon": "format-image",
+  "description": "Картинка, которая плавно появляется при скролле",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {
+    "imageUrl": { "type": "string", "default": "" },
+    "imageId":  { "type": "number" }
+  },
+  "editorScript": "file:./src/index.js",
+  "editorStyle":  "file:./style/editor.css",
+  "script": "file:./src/frontend.js",
+  "style": "file:./style/frontend.css"
+}

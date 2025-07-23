@@ -12,3 +12,6 @@ require_once get_template_directory() . '/inc/editor-override.php';
 require_once get_template_directory() . '/inc/meta-boxes.php';
 require_once get_template_directory() . '/inc/admin-customizations.php';
 require_once get_template_directory() . '/inc/theme-options.php';
+require_once get_template_directory() . '/inc/blocks/registrations/custom.php';
+require_once get_template_directory() . '/inc/blocks/registrations/standard.php';
+

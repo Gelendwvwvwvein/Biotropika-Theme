@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/news-list-block",
+  "title": "Список новостей",
+  "category": "widgets",
+  "icon": "admin-post",
+  "description": "Отображает выбранные новости с настройками",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

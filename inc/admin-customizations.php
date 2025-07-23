@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     }
 });
+
 </script>
 HTML;
     }
@@ -54,6 +55,7 @@ HTML;
     $thumb_labels = [
         'partner' => 'Логотип партнера',
         'person'  => 'Портретное фото',
+        'interview' => 'Превью видео',
     ];
     if (isset($thumb_labels[$screen->post_type])) {
         $label = esc_js($thumb_labels[$screen->post_type]);
@@ -67,3 +69,25 @@ document.addEventListener('DOMContentLoaded',function(){
 HTML;
     }
 });
+
+/**
+ * Отключаем Gutenberg-редактор для перечисленных CPT,
+ * но при этом не трогаем show_in_rest (REST Api остаётся доступным).
+ */
+add_filter( 'use_block_editor_for_post_type', function( $use_block_editor, $post_type ) {
+    // Список CPT, где нужен только классический редактор
+    $classic_editors = [
+        'review',
+        'partner',
+        'interview',
+        'person',
+        'ad_package',
+        // добавьте сюда другие CPT, если нужно
+    ];
+
+    if ( in_array( $post_type, $classic_editors, true ) ) {
+        return false;
+    }
+
+    return $use_block_editor;
+}, 10, 2 );

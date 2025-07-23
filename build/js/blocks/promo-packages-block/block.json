@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/promo-packages-block",
+  "title": "Рекламные пакеты",
+  "category": "widgets",
+  "icon": "cart",
+  "description": "Карточки с пакетами услуг и ценами",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

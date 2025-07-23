@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/benefits-block",
+  "title": "Преимущества (3 колонки)",
+  "category": "widgets",
+  "icon": "awards",
+  "description": "Три колонки преимуществ",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}

@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "biotropika/reviews-cards-block",
+  "title": "Карточки с отзывами с попапом",
+  "category": "widgets",
+  "icon": "testimonial",
+  "description": "Отображает отзывы с возможностью попапа",
+  "supports": {
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {},
+  "editorScript": "file:./src/index.js",
+  "editorStyle": "file:./style/editor.css",
+  "style": "file:./style/frontend.css"
+}
