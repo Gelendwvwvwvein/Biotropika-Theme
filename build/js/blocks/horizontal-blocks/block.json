@@ -1,16 +1,22 @@
 {
   "apiVersion": 2,
   "name": "biotropika/horizontal-blocks",
-  "title": "Горизонтальный набор блоков",
+  "title": "Горизонтальные блоки с ссылкой",
   "category": "widgets",
   "icon": "columns",
-  "description": "До 3 блоков бок о бок с кнопками",
+  "description": "До 3-х блоков с заголовком, текстом и кнопкой",
   "supports": {
     "html": false,
     "customClassName": true
   },
-  "attributes": {},
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": []
+    }
+  },
   "editorScript": "file:./src/index.js",
   "editorStyle": "file:./style/editor.css",
+  "script": "file:./src/frontend.js",
   "style": "file:./style/frontend.css"
 }

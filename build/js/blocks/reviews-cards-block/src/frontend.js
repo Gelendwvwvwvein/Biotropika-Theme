@@ -1,0 +1,1 @@
+(()=>{"use strict";window.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".biotropika-reviews-cards-block");e&&e.addEventListener("click",()=>{const t=e.querySelector(".review.hidden");t&&(t.classList.remove("hidden"),t.classList.add("visible"),t.style.display="")})})})();

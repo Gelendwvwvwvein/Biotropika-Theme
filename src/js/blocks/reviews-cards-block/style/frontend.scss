@@ -1,0 +1,26 @@
+.biotropika-reviews-cards-block {
+  display: grid;
+  gap: 24px;
+
+  .review {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: opacity 0.3s;
+  }
+
+  /* скрываем «скрытые» отзывы */
+  .review.hidden {
+    display: none;
+  }
+
+  /* 
+    когда JS «открывает» следующий отзыв,
+    он убирает hidden и добавляет visible
+  */
+  .review.visible {
+    display: block;
+  }
+
+  cursor: pointer;
+}

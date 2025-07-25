@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.blocks,c=window.wp.blockEditor,i=window.ReactJSXRuntime;(0,e.registerBlockType)("biotropika/reviews-cards-block",{edit(){const e=(0,c.useBlockProps)();return(0,i.jsx)("div",{...e,style:{padding:"20px",border:"1px dashed #ccc",textAlign:"center"},children:"Блок «Карточки с отзывами» (динамический)"})},save:()=>null})})();

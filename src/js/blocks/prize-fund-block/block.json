@@ -1,16 +1,22 @@
 {
   "apiVersion": 2,
   "name": "biotropika/prize-fund-block",
-  "title": "Объем призового фонда с анимацией",
+  "title": "Объём призового фонда",
   "category": "widgets",
-  "icon": "chart-line",
-  "description": "Анимированный счётчик призового фонда",
+  "icon": "money-alt",
+  "description": "Отображает объём призового фонда с анимацией",
   "supports": {
     "html": false,
     "customClassName": true
   },
-  "attributes": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
   "editorScript": "file:./src/index.js",
-  "editorStyle": "file:./style/editor.css",
-  "style": "file:./style/frontend.css"
+  "editorStyle":  "file:./style/editor.css",
+  "script":       "file:./src/frontend.js",
+  "style":        "file:./style/frontend.css"
 }
