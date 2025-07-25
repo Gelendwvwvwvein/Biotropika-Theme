@@ -183,26 +183,33 @@ add_action('init', function() {
         'map_meta_cap' => true,
     ]);
 
-    // 9. ТЕКСТЫ ИНТЕРВЬЮ (gutenberg)
+    // 9. ТЕКСТЫ ИНТЕРВЬЮ (Gutenberg)
     register_post_type('interview_text', [
-        'label' => 'Тексты интервью',
-        'labels' => [
-            'singular_name' => 'Текст интервью',
-            'add_new' => 'Добавить текст',
-            'add_new_item' => 'Новый текст интервью',
-            'edit_item' => 'Редактировать текст интервью',
-            'all_items' => 'Все тексты интервью',
+        'label'           => 'Тексты интервью',
+        'labels'          => [
+            'singular_name'   => 'Текст интервью',
+            'add_new'         => 'Добавить текст',
+            'add_new_item'    => 'Новый текст интервью',
+            'edit_item'       => 'Редактировать текст интервью',
+            'all_items'       => 'Все тексты интервью',
         ],
-        'public' => true,
-        'menu_icon' => 'dashicons-media-document',
-        'supports' => ['title', 'editor', 'excerpt'],
-        'show_in_rest' => true,
-        'has_archive' => true,
+        'public'          => true,
+        'menu_icon'       => 'dashicons-media-document',
+        'supports'        => ['title', 'editor', 'excerpt'],
+        'show_in_rest'    => true,   // Gutenberg
+        'has_archive'     => true,
         'capability_type' => 'post',
-        'capabilities' => [
+        'capabilities'    => [
             'create_posts' => 'edit_others_posts',
         ],
-        'map_meta_cap' => true,
-    ]);
+        'map_meta_cap'    => true,
+    ] );
+
+    // Регистрируем мета-поле interview_parent_id
+    register_post_meta( 'interview_text', 'interview_parent_id', [
+        'show_in_rest' => true,    // чтобы Gutenberg API принял его в meta[]
+        'single'       => true,
+        'type'         => 'integer',
+    ] );
 
 });
