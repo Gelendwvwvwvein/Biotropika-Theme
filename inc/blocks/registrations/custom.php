@@ -11,6 +11,9 @@ require_once get_template_directory() . '/inc/blocks/video-slider-block.php';
 require_once get_template_directory() . '/inc/blocks/horizontal-blocks.php';
 require_once get_template_directory() . '/inc/blocks/prize-fund-block.php';
 require_once get_template_directory() . '/inc/blocks/reviews-cards-block.php';
+require_once get_template_directory() . '/inc/blocks/partners-block.php';
+require_once get_template_directory() . '/inc/blocks/highlight-text-block.php';
+require_once get_template_directory() . '/inc/blocks/news-list-block.php';
 
 // 2) Регистрация самих блоков с указанием render_callback
 add_action( 'init', function() {
@@ -46,6 +49,23 @@ add_action( 'init', function() {
     register_block_type_from_metadata(
         get_template_directory() . '/build/js/blocks/reviews-cards-block',
         [ 'render_callback' => 'biotropika_render_reviews_cards_block' ]
+    );
+
+    // Partners-block
+    register_block_type_from_metadata(
+        get_template_directory() . '/build/js/blocks/partners-block',
+        [ 'render_callback' => 'biotropika_render_partners_block' ]
+    );
+
+    // Highlight-text-block
+    register_block_type_from_metadata(
+        get_template_directory() . '/build/js/blocks/highlight-text-block'
+    );
+
+    // News-list-block
+    register_block_type_from_metadata(
+        get_template_directory() . '/build/js/blocks/news-list-block',
+        [ 'render_callback' => 'biotropika_render_news_list_block' ]
     );
 
 } );

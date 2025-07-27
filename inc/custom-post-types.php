@@ -65,7 +65,8 @@ add_action('init', function() {
         'menu_icon' => 'dashicons-megaphone',
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
         'show_in_rest' => true, // Gutenberg
-        'has_archive' => true,
+        'has_archive' => false,
+        'rewrite'     => [ 'slug' => 'news-item' ],
         'capability_type' => 'post',
         'capabilities' => [
             'create_posts' => 'edit_others_posts',

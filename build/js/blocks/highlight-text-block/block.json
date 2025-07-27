@@ -3,13 +3,30 @@
   "name": "biotropika/highlight-text-block",
   "title": "Выделенный текст с кнопкой",
   "category": "widgets",
-  "icon": "editor-paste-text",
-  "description": "Параграф с выделением и кнопкой",
+  "icon": "editor-ul",
+  "description": "Блок с заголовком, абзацем со ссылками и кнопкой",
   "supports": {
     "html": false,
     "customClassName": true
   },
-  "attributes": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonText": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": ""
+    }
+  },
   "editorScript": "file:./src/index.js",
   "editorStyle": "file:./style/editor.css",
   "style": "file:./style/frontend.css"

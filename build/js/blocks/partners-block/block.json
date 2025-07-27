@@ -1,16 +1,16 @@
 {
   "apiVersion": 2,
   "name": "biotropika/partners-block",
-  "title": "Партнеры (сетка с логотипами)",
+  "title": "Партнеры",
   "category": "widgets",
   "icon": "groups",
-  "description": "Карусель или сетка логотипов партнеров",
+  "description": "Сетка логотипов партнеров с годом мероприятия",
   "supports": {
     "html": false,
-    "customClassName": true
+    "customClassName": false
   },
-  "attributes": {},
   "editorScript": "file:./src/index.js",
   "editorStyle": "file:./style/editor.css",
+  "script": "file:./src/frontend.js",
   "style": "file:./style/frontend.css"
 }

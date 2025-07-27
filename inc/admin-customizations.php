@@ -91,3 +91,29 @@ add_filter( 'use_block_editor_for_post_type', function( $use_block_editor, $post
 
     return $use_block_editor;
 }, 10, 2 );
+
+/**
+ * Re‑enable block editor (и вообще редактор) для страницы записей.
+ */
+add_action( 'admin_init', function() {
+    // Получаем ID страницы записей
+    $posts_page = intval( get_option( 'page_for_posts' ) );
+    if ( $posts_page ) {
+        // Вернём поддержку классического редактора
+        add_post_type_support( 'page', 'editor' );
+        // Вернём поддержку блочного редактора
+        add_post_type_support( 'page', 'custom-fields' );
+    }
+} );
+
+// Фильтр, чтобы Gutenberg точно включился для этой страницы:
+add_filter( 'use_block_editor_for_post', function( $use_block_editor, $post ) {
+    $posts_page = intval( get_option( 'page_for_posts' ) );
+    if ( $post instanceof WP_Post
+         && $post->post_type === 'page'
+         && $post->ID === $posts_page
+    ) {
+        return true;
+    }
+    return $use_block_editor;
+}, 10, 2 );

@@ -3,13 +3,22 @@
   "name": "biotropika/news-list-block",
   "title": "Список новостей",
   "category": "widgets",
-  "icon": "admin-post",
-  "description": "Отображает выбранные новости с настройками",
+  "icon": "list-view",
+  "description": "Выводит список последних новостей с кнопкой на страницу новостей",
   "supports": {
     "html": false,
-    "customClassName": true
+    "customClassName": false
   },
-  "attributes": {},
+  "attributes": {
+    "showAll": {
+      "type": "boolean",
+      "default": false
+    },
+    "newsCount": {
+      "type": "number",
+      "default": 4
+    }
+  },
   "editorScript": "file:./src/index.js",
   "editorStyle": "file:./style/editor.css",
   "style": "file:./style/frontend.css"

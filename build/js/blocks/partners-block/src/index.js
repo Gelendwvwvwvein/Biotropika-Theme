@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.blocks,t=window.wp.blockEditor,o=window.ReactJSXRuntime;(0,e.registerBlockType)("biotropika/partners-block",{edit(){const e=(0,t.useBlockProps)();return(0,o.jsx)("div",{...e,style:{padding:"20px",border:"1px dashed #ccc",textAlign:"center"},children:"Партнеры (динамический)"})},save:()=>null})})();
