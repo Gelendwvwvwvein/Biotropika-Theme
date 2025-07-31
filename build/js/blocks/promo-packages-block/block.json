@@ -3,14 +3,13 @@
   "name": "biotropika/promo-packages-block",
   "title": "Рекламные пакеты",
   "category": "widgets",
-  "icon": "cart",
-  "description": "Карточки с пакетами услуг и ценами",
+  "icon": "megaphone",
+  "description": "Выводит рекламные пакеты: название, перечень услуг, стоимость, отметка «Выгодно»",
   "supports": {
-    "html": false,
-    "customClassName": true
+    "html": false
   },
-  "attributes": {},
   "editorScript": "file:./src/index.js",
   "editorStyle": "file:./style/editor.css",
+  "script": "file:./src/frontend.js",
   "style": "file:./style/frontend.css"
 }

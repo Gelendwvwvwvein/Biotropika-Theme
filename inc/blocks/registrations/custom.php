@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/blocks/partners-block.php';
 require_once get_template_directory() . '/inc/blocks/highlight-text-block.php';
 require_once get_template_directory() . '/inc/blocks/news-list-block.php';
 require_once get_template_directory() . '/inc/blocks/honor-board-block.php';
+require_once get_template_directory() . '/inc/blocks/promo-packages-block.php';
 
 // 2) Регистрация самих блоков с указанием render_callback
 add_action( 'init', function() {
@@ -73,6 +74,10 @@ add_action( 'init', function() {
     register_block_type_from_metadata(
         get_template_directory() . '/build/js/blocks/honor-board-block',
         [ 'render_callback' => 'biotropika_render_honor_board_block']
+    );
+
+    register_block_type_from_metadata( 
+        get_template_directory() . '/build/js/blocks/promo-packages-block'
     );
 
 } );
