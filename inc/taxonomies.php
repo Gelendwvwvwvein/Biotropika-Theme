@@ -82,3 +82,24 @@ add_action('init', function() {
         'show_admin_column' => true,
     ]);
 });
+
+// 6. Регалии для CPT "Люди"
+add_action( 'init', function() {
+    register_taxonomy( 'regalia', 'person', [
+        'labels' => [
+            'name'              => 'Регалии',
+            'singular_name'     => 'Регалия',
+            'search_items'      => 'Найти регалии',
+            'all_items'         => 'Все регалии',
+            'edit_item'         => 'Редактировать регалию',
+            'update_item'       => 'Обновить регалию',
+            'add_new_item'      => 'Добавить новую регалию',
+            'new_item_name'     => 'Название новой регалии',
+            'menu_name'         => 'Регалии',
+        ],
+        'public'            => true,
+        'hierarchical'      => false,
+        'show_in_rest'      => true,
+        'rewrite'           => [ 'slug' => 'regalia' ],
+    ] );
+} );

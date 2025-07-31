@@ -132,6 +132,8 @@ add_action('init', function() {
         'menu_icon' => 'dashicons-id',
         'supports' => ['title', 'thumbnail', 'editor', 'custom-fields'],
         'show_in_rest' => true, // Classic editor
+        'rest_base'      => 'person',
+        'rest_controller_class' => 'WP_REST_Posts_Controller',
         'has_archive' => true,
         'capability_type' => 'post',
         'capabilities' => [

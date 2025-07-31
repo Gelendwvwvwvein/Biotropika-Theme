@@ -1,16 +1,21 @@
 {
   "apiVersion": 2,
   "name": "biotropika/honor-board-block",
-  "title": "Доска почета",
+  "title": "Доска почёта",
   "category": "widgets",
-  "icon": "groups",
-  "description": "Список людей с перетаскиванием сортировки",
-  "supports": {
-    "html": false,
-    "customClassName": true
+  "icon": "editor-ul",
+  "description": "Список людей с перетаскиваемой сортировкой",
+  "supports": { "html": false, "customClassName": true },
+  "attributes": {
+    "term":           { "type": "integer", "default": 0 },
+    "order":          { "type": "string",  "default": "manual" },
+    "manualOrder":    { "type": "array",   "default": [] },
+    "showLaps":       { "type": "boolean","default": true },
+    "showDesc":       { "type": "boolean","default": true },
+    "showRegalia":    { "type": "boolean","default": true }
   },
-  "attributes": {},
   "editorScript": "file:./src/index.js",
-  "editorStyle": "file:./style/editor.css",
-  "style": "file:./style/frontend.css"
+  "editorStyle":  "file:./style/editor.css",
+  "script":       "file:./src/frontend.js",
+  "style":        "file:./src/style/frontend.css"
 }

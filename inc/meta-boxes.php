@@ -240,3 +240,66 @@ add_action( 'admin_menu', function() {
         remove_meta_box( 'postcustom', $cpt, 'normal' );
     }
 } );
+
+// 1) Добавляем метабокс «Спортсмен + Количество кругов»
+add_action( 'add_meta_boxes', function() {
+    add_meta_box(
+        'person_athlete',
+        'Спортсмен',
+        function( $post ) {
+            $is_athlete = get_post_meta( $post->ID, 'person_athlete', true );
+            $laps       = get_post_meta( $post->ID, 'person_laps', true );
+            // чекбокс
+            echo '<label><input type="checkbox" name="person_athlete" value="1" '
+               . checked( $is_athlete, 1, false )
+               . '> Спортсмен</label>';
+            // поле с числом кругов
+            echo '<div id="person_laps_container" style="margin-top:8px;'
+               . ( $is_athlete ? '' : 'display:none;' )
+               . '">';
+            echo '<label>Количество кругов: '
+               . '<input type="number" min="0" name="person_laps" value="'
+               . esc_attr( $laps )
+               . '" style="width:80px;"></label>';
+            echo '</div>';
+        },
+        'person',
+        'normal',
+        'default'
+    );
+});
+
+// 2) Сохраняем данные
+add_action( 'save_post_person', function( $post_id ) {
+    if ( array_key_exists( 'person_athlete', $_POST ) ) {
+        update_post_meta( $post_id, 'person_athlete', 1 );
+    } else {
+        update_post_meta( $post_id, 'person_athlete', 0 );
+    }
+    if ( isset( $_POST['person_laps'] ) ) {
+        update_post_meta( $post_id, 'person_laps', intval( $_POST['person_laps'] ) );
+    }
+});
+
+// 3) JS для показа/скрытия «Количество кругов»
+add_action( 'admin_footer', function() {
+    $screen = get_current_screen();
+    if ( $screen->post_type !== 'person' ) {
+        return;
+    }
+    ?>
+    <script>
+    (function($){
+        const $cb   = $('input[name="person_athlete"]');
+        const $laps = $('#person_laps_container');
+        $cb.on('change', function(){
+            if ( $(this).is(':checked') ) {
+                $laps.slideDown();
+            } else {
+                $laps.slideUp();
+            }
+        });
+    })(jQuery);
+    </script>
+    <?php
+});

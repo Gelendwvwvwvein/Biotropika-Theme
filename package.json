@@ -7,5 +7,8 @@
     "build:variables": "node scripts/generate-scss-vars.js",
     "build": "wp-scripts build",
     "start": "wp-scripts start"
+  },
+  "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1"
   }
 }
