@@ -81,3 +81,23 @@ add_action( 'init', function() {
     );
 
 } );
+
+add_action( 'enqueue_block_editor_assets', function() {
+    // наш общий файл фильтров
+    wp_enqueue_script(
+        'biotropika-block-filters',
+        get_template_directory_uri() . '/inc/js/block-filters.js',
+        [ 'wp-hooks', 'wp-edit-post', 'wp-block-editor', 'wp-components', 'wp-data' ],
+        filemtime( get_template_directory() . '/inc/js/block-filters.js' ),
+        true
+    );
+    // передаём в JS URL выбранного в настройках плейсхолдера
+    $opts = get_option('biotropika_theme_options');
+    $placeholder_id = $opts['placeholder_img'] ?? 0;
+    $placeholder_url = $placeholder_id
+        ? wp_get_attachment_image_url( $placeholder_id, 'full' )
+        : '';
+    wp_localize_script( 'biotropika-block-filters', 'BiotropikaSettings', [
+        'placeholderUrl' => $placeholder_url,
+    ] );
+} );
