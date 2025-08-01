@@ -1,79 +1,99 @@
-import { addFilter } from '@wordpress/hooks';
-import { createHigherOrderComponent } from '@wordpress/compose';
-import { Fragment } from '@wordpress/element';
-import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl } from '@wordpress/components';
-
 /**
- * 1) Расширяем все блоки новым булевым атрибутом isHidden.
+ * inc/js/block-filters.js
+ *
+ * 1) Добавляет атрибут isHidden (boolean) ко всем блокам biotropika/*
+ * 2) Вставляет в боковую панель чекбокс "Скрыть блок в продакшене"
+ * 3) Не выводит скрытый блок на фронтенде
  */
-addFilter(
-  'blocks.registerBlockType',
-  'biotropika/extend-attributes',
-  (settings) => {
-    settings.attributes = {
-      ...settings.attributes,
-      isHidden: {
-        type: 'boolean',
-        default: false,
-      },
-    };
-    return settings;
-  }
-);
+(function() {
+    const { addFilter } = wp.hooks;
+    const { createHigherOrderComponent } = wp.compose;
+    const { createElement, Fragment } = wp.element;
+    const { InspectorControls } = wp.blockEditor || wp.editor;
+    const { PanelBody, CheckboxControl } = wp.components;
 
-/**
- * 2) Вставляем в InspectorControl для каждого блока чекбокс "Скрыть блок".
- */
-const withHideControl = createHigherOrderComponent( ( BlockEdit ) => {
-  return ( props ) => {
-    const { attributes, setAttributes, isSelected } = props;
-    if ( typeof attributes.isHidden === 'undefined' ) {
-      return <BlockEdit { ...props } />;
-    }
-    return (
-      <Fragment>
-        <InspectorControls>
-          <PanelBody title="Отображение блока" initialOpen={ false }>
-            <ToggleControl
-              label="Скрыть блок в продакшене"
-              checked={ attributes.isHidden }
-              onChange={ ( val ) => setAttributes( { isHidden: val } ) }
-            />
-          </PanelBody>
-        </InspectorControls>
-        <BlockEdit { ...props } />
-      </Fragment>
+    // 0) Расширяем metadata блоков, объявляя новый атрибут
+    addFilter(
+        'blocks.registerBlockType',
+        'biotropika/extend-attributes',
+        (settings, name) => {
+            if ( name.startsWith('biotropika/') ) {
+                settings.attributes = Object.assign(
+                    {},
+                    settings.attributes,
+                    {
+                        isHidden: {
+                            type: 'boolean',
+                            default: false,
+                        },
+                    }
+                );
+            }
+            return settings;
+        }
     );
-  };
-}, 'withHideControl' );
 
-addFilter(
-  'editor.BlockEdit',
-  'biotropika/with-hide-control',
-  withHideControl
-);
+    // 1) HOC для добавления панели с чекбоксом
+    const withHideControl = createHigherOrderComponent(
+        (BlockEdit) => {
+            return (props) => {
+                const { name, attributes, setAttributes } = props;
 
-/**
- * 3) Подменяем изображение на плейсхолдер, если у блока есть атрибут imageUrl (или previewUrl),
- *    и он пуст.
- */
-const withPlaceholder = createHigherOrderComponent( ( BlockSave ) => {
-  return ( props ) => {
-    const { attributes } = props;
-    // Список полей, где может быть картинка:
-    const imgAttrs = [ 'imageUrl', 'previewUrl' ];
-    imgAttrs.forEach( ( key ) => {
-      if ( key in attributes && ! attributes[ key ] ) {
-        attributes[ key ] = BiotropikaSettings.placeholderUrl;
-      }
-    } );
-    return <BlockSave { ...props } />;
-  };
-}, 'withPlaceholder' );
+                // Только для своих блоков
+                if ( ! name.startsWith('biotropika/') ) {
+                    return createElement(BlockEdit, props);
+                }
 
-addFilter(
-  'blocks.getSaveElement',
-  'biotropika/with-placeholder',
-  withPlaceholder
-);
+                const isHidden = !!attributes.isHidden;
+
+                return createElement(
+                    Fragment,
+                    {},
+                    createElement(BlockEdit, props),
+                    createElement(
+                        InspectorControls,
+                        {},
+                        createElement(
+                            PanelBody,
+                            {
+                                title: 'Отображение блока',
+                                initialOpen: false,
+                            },
+                            createElement(CheckboxControl, {
+                                label: 'Скрыть блок в продакшене',
+                                checked: isHidden,
+                                onChange: () =>
+                                    setAttributes({ isHidden: ! isHidden }),
+                            })
+                        )
+                    )
+                );
+            };
+        },
+        'withHideControl'
+    );
+
+    // 2) Не рендерим на фронт, если isHidden=true
+    function overrideSave(element, blockType, attributes) {
+        if (
+            blockType.name.startsWith('biotropika/') &&
+            attributes.isHidden
+        ) {
+            return null;
+        }
+        return element;
+    }
+
+    // 3) Регистрируем фильтры
+    addFilter(
+        'editor.BlockEdit',
+        'biotropika/hide-block-control',
+        withHideControl
+    );
+
+    addFilter(
+        'blocks.getSaveElement',
+        'biotropika/hide-block-override',
+        overrideSave
+    );
+})();
