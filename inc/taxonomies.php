@@ -49,6 +49,7 @@ add_action('init', function() {
         'public' => true,
         'hierarchical' => true,
         'show_in_rest' => true,
+        'rest_base' => 'honor_board',
         'show_admin_column' => true,
     ]);
     

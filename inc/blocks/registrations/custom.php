@@ -82,3 +82,45 @@ add_action( 'init', function() {
     );
 
 });
+
+
+/**
+ * Ограничиваем список доступных блоков Gutenberg
+ */
+
+add_filter( 'allowed_block_types_all', function( $allowed_block_types, $editor_context ) {
+    // здесь — разрешённые кастомные блоки
+    $custom = [
+        'biotropika/preview-block',
+        'biotropika/scroll-animation-block',
+        'biotropika/video-slider-block',
+        'biotropika/horizontal-blocks',
+        'biotropika/prize-fund-block',
+        'biotropika/animated-video-block',
+        'biotropika/reviews-cards-block',
+        'biotropika/donate-widget-block',
+        'biotropika/benefits-block',
+        'biotropika/partners-block',
+        'biotropika/highlight-text-block',
+        'biotropika/news-list-block',
+        'biotropika/honor-board-block',
+        'biotropika/promo-packages-block',
+        'biotropika/navigation-block',
+        'biotropika/footer-block',
+        // и любые другие ваши biotropika/* блоки
+    ];
+
+    // разрешённые штатные блоки core
+    $core = [
+        'core/image',
+        'core/gallery',
+        'core/video',
+        'core/paragraph',
+        'core/heading',
+        'core/list',
+        'core/quote',
+        'core/button',
+    ];
+
+    return array_merge( $custom, $core );
+}, 10, 2 );
